@@ -1,0 +1,3 @@
+[submodule "libselinux"]
+	path = libselinux
+	url = git@github.com:scoty755/android_external_libselinux.git
