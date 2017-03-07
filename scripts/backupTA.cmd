@@ -5,22 +5,22 @@ for /F "delims=" %%a in ('windows\adb.exe shell getprop ro.product.cpu.abi') do 
 for /F "delims=" %%a in ('windows\adb.exe shell getprop ro.product.device') do set DEVICE=%%a
 for /F "delims=" %%a in ('windows\adb.exe shell getprop ro.serialno') do set SERIAL=%%a
 
-set SUFFIX=32
+set DIR=../libs/armeabi-v7a
 IF %ARCH% == "arm64-v8a" (
-   set SUFFIX=64
+   set SUFFIX=../libs/arm64-v8a
 )
 
 for /f "tokens=1-8 delims=.:,/ " %%a in ("%date% %time%") do set DateNtime=%%a%%b%%c-%%d%%e
 set TAIMG=TA_%DEVICE%_%SERIAL%_%DateNtime%.img
 
-windows\adb.exe push files/dirtycow%SUFFIX% /data/local/tmp/dirtycow
-windows\adb.exe push files/run-as%SUFFIX% /data/local/tmp/run-as
-windows\adb.exe push files/exploitta%SUFFIX% /data/local/tmp/exploitta
-windows\adb.exe push files/dumpta%SUFFIX% /sdcard/dumpta
-windows\adb.exe push files/backupTA.sh /data/local/tmp
+windows\adb.exe push %DIR%/dirtycow /data/local/tmp/dirtycow
+windows\adb.exe push %DIR%/cow-run-as /data/local/tmp/run-as
+windows\adb.exe push %DIR%/exploitta /data/local/tmp/exploitta
+windows\adb.exe push %DIR%/dumpta /sdcard/dumpta
+windows\adb.exe push backupTADevice.sh /data/local/tmp
 windows\adb.exe shell "chmod 755 /data/local/tmp/*"
-windows\adb.exe shell "/data/local/tmp/backupTA.sh %TAIMG%"
+windows\adb.exe shell "/data/local/tmp/backupTADevice.sh %TAIMG%"
 windows\adb.exe pull /data/local/tmp/%TAIMG% %TAIMG%
-windows\adb.exe shell "rm -f /data/local/tmp/dirtycow /data/local/tmp/run-as /data/local/tmp/exploitta /sdcard/dumpta /data/local/tmp/backupTA.sh"
+windows\adb.exe shell "rm -f /data/local/tmp/dirtycow /data/local/tmp/run-as /data/local/tmp/exploitta /sdcard/dumpta /data/local/tmp/backupTADevice.sh"
 echo TA Sucessfully pulled to %TAIMG%
 pause
