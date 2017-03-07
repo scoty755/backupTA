@@ -23,7 +23,7 @@
 #include <netinet/in.h>
 #include <errno.h>
 #include <string.h>
-#include <cutils/sockets.h>
+#include "cutils/sockets.h"
 #define TAG "DumpTA"
 #define LOGV(...) { __android_log_print(ANDROID_LOG_INFO, TAG, __VA_ARGS__); }
 
