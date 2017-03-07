@@ -18,7 +18,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
-#include <sys/capability.h>
+#include "sys/capability.h"
 #include "libselinux/include/selinux/selinux.h"
 #include "libselinux/include/selinux/context.h"
 #include "libselinux/include/selinux/android.h"
