@@ -10,11 +10,11 @@ fi
 adb push ${DIR}/dirtycow /data/local/tmp/dirtycow
 adb push ${DIR}/cow-run-as /data/local/tmp/run-as
 adb push ${DIR}/exploitta /data/local/tmp/exploitta
-adb push ${DIR}/dumpta /sdcard/dumpta
+adb push ${DIR}/dumpta /data/local/tmp/dumpta
 adb push backupTADevice.sh /data/local/tmp
 adb shell "chmod 755 /data/local/tmp/*"
 TAIMG="TA_${DEVICE}_${SERIAL}_$(date -u +%Y%m%d-%H%M).img"
 adb shell /data/local/tmp/backupTADevice.sh ${TAIMG}
 adb pull /data/local/tmp/${TAIMG} ${TAIMG}
-adb shell "rm -f /data/local/tmp/dirtycow /data/local/tmp/run-as /data/local/tmp/exploitta /sdcard/dumpta /data/local/tmp/backupTADevice.sh"
+adb shell "rm -f /data/local/tmp/dirtycow /data/local/tmp/run-as /data/local/tmp/exploitta /data/local/tmp/dumpta /data/local/tmp/backupTADevice.sh"
 echo "TA Sucessfully pulled to ${TAIMG}"

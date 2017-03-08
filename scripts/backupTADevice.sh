@@ -19,9 +19,9 @@ if [ "$?" != "0" ]; then
     ./dirtycow /system/bin/screenrecord ./exploitta
 fi
 
-run-as > /data/local/tmp/$TANAME
+run-as > /data/local/tmp/$TANAME < /data/local/tmp/dumpta
 if [ $? -lt 0 ]; then
-    run-as > /data/local/tmp/$TANAME
+    run-as > /data/local/tmp/$TANAME < /data/local/tmp/dumpta
 fi
 if [ ! $? -eq 0 ]; then
     echo "Error dumping TA, file $TANAME is broken"

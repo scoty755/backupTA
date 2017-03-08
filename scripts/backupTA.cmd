@@ -16,11 +16,11 @@ set TAIMG=TA_%DEVICE%_%SERIAL%_%DateNtime%.img
 windows\adb.exe push %DIR%/dirtycow /data/local/tmp/dirtycow
 windows\adb.exe push %DIR%/cow-run-as /data/local/tmp/run-as
 windows\adb.exe push %DIR%/exploitta /data/local/tmp/exploitta
-windows\adb.exe push %DIR%/dumpta /sdcard/dumpta
+windows\adb.exe push %DIR%/dumpta /data/local/tmp/dumpta
 windows\adb.exe push backupTADevice.sh /data/local/tmp
 windows\adb.exe shell "chmod 755 /data/local/tmp/*"
 windows\adb.exe shell "/data/local/tmp/backupTADevice.sh %TAIMG%"
 windows\adb.exe pull /data/local/tmp/%TAIMG% %TAIMG%
-windows\adb.exe shell "rm -f /data/local/tmp/dirtycow /data/local/tmp/run-as /data/local/tmp/exploitta /sdcard/dumpta /data/local/tmp/backupTADevice.sh"
+windows\adb.exe shell "rm -f /data/local/tmp/dirtycow /data/local/tmp/run-as /data/local/tmp/exploitta /data/local/tmp/dumpta /data/local/tmp/backupTADevice.sh"
 echo TA Sucessfully pulled to %TAIMG%
 pause
