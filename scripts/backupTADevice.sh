@@ -29,3 +29,5 @@ if [ ! $? -eq 0 ]; then
 else
     echo "Dumped TA as $TANAME"
 fi
+
+/data/local/tmp/checkta /data/local/tmp/$TANAME

@@ -11,6 +11,7 @@ adb push ${DIR}/dirtycow /data/local/tmp/dirtycow
 adb push ${DIR}/cow-run-as /data/local/tmp/run-as
 adb push ${DIR}/exploitta /data/local/tmp/exploitta
 adb push ${DIR}/dumpta /data/local/tmp/dumpta
+adb push ${DIR}/checkta /data/local/tmp/checkta
 adb push backupTADevice.sh /data/local/tmp
 adb shell "chmod 755 /data/local/tmp/*"
 TAIMG="TA_${DEVICE}_${SERIAL}_$(date -u +%Y%m%d-%H%M).img"

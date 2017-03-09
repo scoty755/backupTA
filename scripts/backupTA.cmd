@@ -17,6 +17,7 @@ windows\adb.exe push %DIR%/dirtycow /data/local/tmp/dirtycow
 windows\adb.exe push %DIR%/cow-run-as /data/local/tmp/run-as
 windows\adb.exe push %DIR%/exploitta /data/local/tmp/exploitta
 windows\adb.exe push %DIR%/dumpta /data/local/tmp/dumpta
+windows\adb.exe push %DIR%/checkta /data/local/tmp/checkta
 windows\adb.exe push backupTADevice.sh /data/local/tmp
 windows\adb.exe shell "chmod 755 /data/local/tmp/*"
 windows\adb.exe shell "/data/local/tmp/backupTADevice.sh %TAIMG%"
