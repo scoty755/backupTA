@@ -32,6 +32,9 @@
 #define DEBUGPRINT(...)
 #endif
 
+#define CAP_TO_INDEX(x) ((x) >> 5)
+#define CAP_TO_MASK(x) (1 << ((x) & 31))
+
 //#define SE_CHECK
 
 int main(int __unused argc, char __unused **argv)
